@@ -90,8 +90,14 @@ void loop()
   {
     if(state == STATE_SETUP)
     {
-      ++setupMinutes;
-      setupMinutes = setupMinutes % 60;
+      if(setupMinutes == 0)
+      {
+        setupMinutes = 59;
+      }
+      else
+      {
+        --setupMinutes;
+      }
       tone(PIN_BUZZER, NOTE_A4, 100);
     }
     else
